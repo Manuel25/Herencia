@@ -1,0 +1,93 @@
+using System;
+
+namespace ejempherencia
+{
+        class Program
+        {
+                public static void Main(string[] args)
+                {
+                        Profesor _Profesor = new Profesor(1, "Marcos", "Aguilar", "Sonsonate");
+                        Personal _Personal = new Personal(1, "Nestor", "Infante");
+                        
+                        Console.WriteLine("Clase Profesor");
+                        Console.WriteLine(_Profesor._variable);
+                        Console.WriteLine(_Profesor.Metodo(1,2));
+                        Console.WriteLine("Id : {0} ", _Profesor.Id);
+                        Console.WriteLine("Nombre : {0} ", _Profesor.Nombre);
+                        Console.WriteLine("Apellido : {0} ", _Profesor.Apellidos);
+                        Console.WriteLine("Direccion : {0} ", _Profesor.Direccion);
+                        Console.WriteLine("------------------------------");
+                        Console.WriteLine("Clase Personal");
+                        Console.WriteLine("Id : {0} ", _Personal.Id);
+                        Console.WriteLine("Nombre : {0} ", _Personal.Nombre);
+                        Console.WriteLine("Apellido : {0} ", _Personal.Apellidos);
+                    
+                        Console.ReadKey();
+                }
+        }
+}
+
+/Program
+using System;
+using System.Collections;
+
+namespace ejempherencia
+{
+        public class Personal
+        {
+                private int _Id;
+                private string _Nombre;
+                private string _Apellidos;
+                
+                public int Id
+                {
+                        get { return _Id; }
+                        set { _Id = value; }
+                }
+                
+                public string Nombre
+                {
+                        get { return _Nombre; }
+                        set { _Nombre = value; }
+                }
+                
+                public string Apellidos
+                {
+                        get { return _Apellidos; }
+                        set { _Apellidos = value; }
+                }
+                
+                public Personal(int pId, string pNombre, string pApellido)
+                {
+                        Id = pId;
+                        Nombre = pNombre;
+                        Apellidos = pApellido;
+                }
+        }
+        
+        class Profesor : Personal
+        {
+                private string _Direccion;
+                
+                public string Direccion
+                {
+                        get { return _Direccion; }
+                        set { _Direccion = value; }
+                }
+                
+                public Profesor(int pId, string pNombre, string pApellido, string pDireccion)
+                        : base(pId, pNombre, pApellido)
+                {
+                        Direccion = pDireccion;
+                }
+                
+                public string _variable = "Hola Hijo";
+                
+                public int Metodo(int a, int b)
+                {
+                        return a + b;
+                }
+        }
+        
+        
+}
